@@ -1,5 +1,5 @@
 //Returns an array composed of all of the
-function getWords(s) {
+export function getWords(s) {
   //s = s.replace(/[']/g, '')
   //console.log(s);
   //return s.match(/(\w+)/g).length;
@@ -7,57 +7,35 @@ function getWords(s) {
 }
 
 //Returns the total number of numbers
-function countNumbers(s) {
+export function countNumbers(s) {
   return s.match(/[1-9]{1,}/g).length;
 }
 
 //Returns an array of all of the numbers inside of a string.
-function getNumbers(s) {
+export function getNumbers(s) {
   return s.match(/[1-9]{1,}/g);
 }
 
 //Returns an array of all of the unique words
-function uniqueWords(s) {
+export function uniqueWords(s) {
   return s.match(/(\b[\w'-]+\b)(?![\s\S]*\b\1\b)/g);
 }
 
-const text = `
-Homies don't want war, I'm a martian with an army of Spartans
-Sparring with a knife 776 in a missile 99 fight
-Get your intel right, your
-
-intelligence is irrelevant 88 test\
-hello
-
-hey
-
-f
-
-fg
-`;
-
-///console.log(getWords(text));
-// console.log(countNumbers(text));
-// console.log(text);
-// console.log(uniqueWords(text));
-
-const str = getWords(text);
-
-function wordsAfter(str) {
+export function wordsAfter(str) {
   let word = 'with';
   //str.match(/(?<=in )\b\w+\b/g);
   let reg = new RegExp(`\(\?\<\= ${word} \)\\b\\w+\\b`, 'g');
   return str.match(reg);
 }
 
-function wordsBefore(str) {
+export function wordsBefore(str) {
   let word = 'with';
   //str.match(/\b\w+\b.(?=with)/g);
   let reg = new RegExp(`\\b\\w+\\b\.\(\?\=${word}\)`, 'g');
   return str.match(reg);
 }
 
-function bigrams(words) {
+export function bigrams(words) {
   let result = [];
   for (let i = 0; i < str.length - 1; i++) {
     result.push([words[i], words[i + 1]]);
@@ -66,7 +44,7 @@ function bigrams(words) {
 }
 
 //Returns the number of paragraphs when they start after 2 new lines
-function countP2(str) {
+export function countP2(str) {
   str = str.match(/(\n|^).*?(?=\n|$)/g);
   let count = 0;
   let inP = false;
@@ -83,7 +61,7 @@ function countP2(str) {
   return count;
 }
 
-function getP2(str) {
+export function getP2(str) {
   str = str.match(/(\n|^).*?(?=\n|$)/g);
   let count = 0;
   let paragraphs = [];
@@ -106,10 +84,8 @@ function getP2(str) {
   return paragraphs.length;
 }
 
-console.log(getP2(text));
-
 //Returns the number of paragraphs when they start at a new line
-function countP1(str) {
+export function countP1(str) {
   str = str.match(/(\n|^).*?(?=\n|$)/g);
   let count = 0;
   let inP = false;

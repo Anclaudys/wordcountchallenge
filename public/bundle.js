@@ -222,23 +222,9 @@ var Text = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       textBody: ''
     };
-    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this)); // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleClear = this.handleClear.bind(this);
-
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
-  } // handleChange(event) {
-  //   const target = event.target;
-  //   const value = target.type === 'checkbox' ? target.checked : target.value;
-  //   const name = target.name;
-  //   target.type === 'checkbox'
-  //     ? this.setState({
-  //         checkboxValues: { ...this.state.checkboxValues, [name]: value },
-  //       })
-  //     : this.setState({
-  //         [name]: value,
-  //       });
-  // }
-
+  }
 
   _createClass(Text, [{
     key: "handleChange",
@@ -246,59 +232,23 @@ var Text = /*#__PURE__*/function (_React$Component) {
       this.setState({
         textBody: evt.target.value
       });
-    } // handleSubmit(event) {
-    //   event.preventDefault();
-    //   const { textSubmit, checkboxValues } = this.state;
-    //   const str = textSubmit;
-    //   const paragraphs = makeParagraph(str);
-    //   const words = wordFunc(str);
-    //   const characters = charFunc(str);
-    //   const sentences = sentFunc(str);
-    //   const bigrams = bigramWord(words);
-    //   const uniqueBigrams = uniqueBigramWord(words);
-    //   const wordFreqs = wordFreq(words);
-    //   const uniqueWords = wordUnique(words);
-    //   const palindrome = validPal(str);
-    //   const emp = removeEmptyElements(paragraphs);
-    //   textSubmit &&
-    //     this.setState({
-    //       counts: {
-    //         'Word Count': words.length,
-    //         'Unique Word Count': Object.keys(uniqueWords).length,
-    //         'Character Count': characters.length,
-    //         'Sentence Count': sentences.length,
-    //         'Paragraph Count': paragraphs.length,
-    //         'Bigram Count': Object.keys(bigrams).length,
-    //         'Unique Bigram Count': Object.keys(uniqueBigrams).length,
-    //         'Is Palindrome?': palindrome,
-    //       },
-    //     });
-    //   checkboxValues['Show Word & Bigram Frequency Tables'] &&
-    //     this.setState({
-    //       wordFreqData: wordFreqs,
-    //       bigramData: bigrams,
-    //     });
-    // }
-    // handleClear(event) {
-    //   event.preventDefault();
-    //   this.setState({
-    //     textSubmit: '',
-    //     counts,
-    //   });
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
-      var textBody = this.state.textBody;
+      var _this$state = this.state,
+          textBody = _this$state.textBody,
+          handleChange = _this$state.handleChange;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         type: "text",
         value: textBody,
         name: "textBody",
-        onChange: this.handleChange,
+        onChange: handleChange,
         placeholder: "Insert text..."
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        // onClick={this.handleClear}
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("abbr", {
+        title: "Click and Drag to Resize"
+      }, ".")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        // onClick={//clear the}
         type: "reset",
         value: "Reset"
       }, "Clear Text")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_highlighter__WEBPACK_IMPORTED_MODULE_1___default()), {

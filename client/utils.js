@@ -1,9 +1,10 @@
 //Returns an array composed of all of the
 export function getWords(s) {
-  //s = s.replace(/[']/g, '')
-  //console.log(s);
-  //return s.match(/(\w+)/g).length;
-  return s.match(/([\w'-]+)/g);
+  if (!s.length) {
+    return [];
+  } else {
+    return s.match(/([\w'-]+)/g);
+  }
 }
 
 //Returns the total number of numbers
@@ -100,4 +101,13 @@ export function countP1(str) {
     }
   }
   return count;
+}
+
+export function countSentences(str) {
+  const result = str.match(/\w[.!?](\s|$)/g);
+  if (result) {
+    return result;
+  } else {
+    return [];
+  }
 }

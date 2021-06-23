@@ -20,6 +20,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "fbjs": "^3.0.0",
     "history": "^5.0.0",
     "i": "^0.3.6",
     "install": "^0.13.0",

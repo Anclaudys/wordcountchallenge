@@ -23,18 +23,25 @@ function uniqueWords(s) {
 
 const text = `
 Homies don't want war, I'm a martian with an army of Spartans
-Sparring with a knife 776 in a missile 99 fight
-Get your intel right, your
-
-intelligence is irrelevant 88 test\
-hello
-
-hey
-
-f
-
-fg
+Sparring with a knife in a missile fight
+Get your intel right, your intelligence is irrelevant  test
 `;
+
+function getP1(str) {
+  str = str.match(/(\n|^).*?(?=\n|$)/g);
+  let paragraphs = [];
+  let inP = false;
+  let currentP = '';
+  //console.log(str);
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '\n') {
+      continue;
+    }
+    paragraphs.push(str[i]);
+  }
+  return paragraphs;
+}
+console.log(getP1(text));
 
 ///console.log(getWords(text));
 // console.log(countNumbers(text));
@@ -106,7 +113,7 @@ function getP2(str) {
   return paragraphs.length;
 }
 
-console.log(getP2(text));
+//console.log(getP2(text));
 
 //Returns the number of paragraphs when they start at a new line
 function countP1(str) {

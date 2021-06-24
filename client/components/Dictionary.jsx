@@ -5,27 +5,24 @@ export default class Dictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chosenWord: this.props.chosenWord,
+      chosenWord: '',
       meanings: [],
     };
     this.fetchEntry = this.fetchEntry.bind(this);
   }
 
-  componentDidMount() {
-    this.fetchEntry();
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      chosenWord: nextProps.chosenWord,
+    };
   }
-  async fetchEntry() {
-    let word = 'lead';
+
+  async fetchEntry(word, lang = 'en_US') {
     const { data } = await axios.get(
-      `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`
+      `https://api.dictionaryapi.dev/api/v2/entries/${lang}/${word}`
     );
-
-    //console.log('data[0].??.', Array.isArray(data[0].meanings));
-
-    const meanings = data[0];
-    console.log('means', meanings);
-    // console.log(Object.keys(meanings));
-    // console.log('meanings...', meanings);
+    const meanings = data[0].meanings;
+    //console.log('means', meanings);
     this.setState({
       chosenWord: word,
       meanings: meanings,
@@ -33,36 +30,37 @@ export default class Dictionary extends React.Component {
   }
   render() {
     const { chosenWord, meanings } = this.state;
-
-    console.log('meanings ===', meanings);
-    console.log('defs ====', meanings.definitions);
-    //console.log('singledef ====', meanings.defintition[0].definition);
+    console.log('ffff', chosenWord);
     return (
-      <div>
-        <button onClick={this.fetchEntry}></button>
-        {chosenWord}
+      <table>
+        <thead>
+          <button onClick={() => this.fetchEntry(chosenWord)}></button>
+          <tr>{chosenWord.toUpperCase()}</tr>
+        </thead>
         {meanings.length ? (
           meanings.map((mot, i) => {
             return (
-              <div key={i}>
-                <h4>{mot.partOfSpeech}</h4>
+              <tbody key={i}>
+                <tr>
+                  <th>{mot.partOfSpeech}</th>
+                </tr>
                 <div>
                   {mot.definitions.map((def, j) => {
                     return (
                       <div key={j}>
                         <h1>{j + 1}</h1>
-                        <div>{definition}</div>
+                        <div>{`${def.definition}`}</div>
                       </div>
                     );
                   })}
                 </div>
-              </div>
+              </tbody>
             );
           })
         ) : (
-          <div> </div>
+          <tbody> </tbody>
         )}
-      </div>
+      </table>
     );
   }
 }

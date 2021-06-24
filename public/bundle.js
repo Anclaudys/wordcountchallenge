@@ -8289,7 +8289,8 @@ var Dictionary = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       chosenWord: '',
-      meanings: []
+      meanings: [],
+      selectWordMsg: ''
     };
     _this.fetchEntry = _this.fetchEntry.bind(_assertThisInitialized(_this));
     return _this;
@@ -8299,6 +8300,8 @@ var Dictionary = /*#__PURE__*/function (_React$Component) {
     key: "fetchEntry",
     value: function () {
       var _fetchEntry = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(word) {
+        var _this2 = this;
+
         var lang,
             _yield$axios$get,
             data,
@@ -8310,10 +8313,31 @@ var Dictionary = /*#__PURE__*/function (_React$Component) {
             switch (_context.prev = _context.next) {
               case 0:
                 lang = _args.length > 1 && _args[1] !== undefined ? _args[1] : 'en_US';
-                _context.next = 3;
+
+                if (word) {
+                  _context.next = 7;
+                  break;
+                }
+
+                this.setState({
+                  selectWordMsg: "Select a word to get it's definition"
+                });
+                _context.next = 5;
+                return setTimeout(function () {
+                  return _this2.setState({
+                    selectWordMsg: ''
+                  });
+                }, 1000);
+
+              case 5:
+                _context.next = 13;
+                break;
+
+              case 7:
+                _context.next = 9;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("https://api.dictionaryapi.dev/api/v2/entries/".concat(lang, "/").concat(word));
 
-              case 3:
+              case 9:
                 _yield$axios$get = _context.sent;
                 data = _yield$axios$get.data;
                 meanings = data[0].meanings; //console.log('means', meanings);
@@ -8323,7 +8347,7 @@ var Dictionary = /*#__PURE__*/function (_React$Component) {
                   meanings: meanings
                 });
 
-              case 7:
+              case 13:
               case "end":
                 return _context.stop();
             }
@@ -8340,25 +8364,29 @@ var Dictionary = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _this$state = this.state,
           chosenWord = _this$state.chosenWord,
-          meanings = _this$state.meanings;
-      console.log('ffff', chosenWord);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          meanings = _this$state.meanings,
+          selectWordMsg = _this$state.selectWordMsg;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
-          return _this2.fetchEntry(chosenWord);
+          return _this3.fetchEntry(chosenWord);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, chosenWord.toUpperCase())), meanings.length ? meanings.map(function (mot, i) {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, selectWordMsg), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", {
+        onClick: function onClick() {
+          return _this3.fetchEntry(chosenWord);
+        }
+      }, chosenWord.toUpperCase())), meanings.length ? meanings.map(function (mot, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", {
           key: i
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null, mot.partOfSpeech)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, mot.definitions.map(function (def, j) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null, mot.partOfSpeech)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, mot.definitions.map(function (def, j) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
             key: j
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, j + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "".concat(def.definition)));
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("lh", null, j + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "".concat(def.definition)));
         })));
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, " "));
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, " ")));
     }
   }], [{
     key: "getDerivedStateFromProps",

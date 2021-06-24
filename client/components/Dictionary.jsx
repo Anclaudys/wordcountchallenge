@@ -7,6 +7,7 @@ export default class Dictionary extends React.Component {
     this.state = {
       chosenWord: '',
       meanings: [],
+      selectWordMsg: '',
     };
     this.fetchEntry = this.fetchEntry.bind(this);
   }
@@ -18,49 +19,64 @@ export default class Dictionary extends React.Component {
   }
 
   async fetchEntry(word, lang = 'en_US') {
-    const { data } = await axios.get(
-      `https://api.dictionaryapi.dev/api/v2/entries/${lang}/${word}`
-    );
-    const meanings = data[0].meanings;
-    //console.log('means', meanings);
-    this.setState({
-      chosenWord: word,
-      meanings: meanings,
-    });
+    if (!word) {
+      this.setState({ selectWordMsg: "Select a word to get it's definition" });
+      await setTimeout(
+        () =>
+          this.setState({
+            selectWordMsg: '',
+          }),
+        1000
+      );
+    } else {
+      const { data } = await axios.get(
+        `https://api.dictionaryapi.dev/api/v2/entries/${lang}/${word}`
+      );
+      const meanings = data[0].meanings;
+      //console.log('means', meanings);
+      this.setState({
+        chosenWord: word,
+        meanings: meanings,
+      });
+    }
   }
   render() {
-    const { chosenWord, meanings } = this.state;
-    console.log('ffff', chosenWord);
+    const { chosenWord, meanings, selectWordMsg } = this.state;
     return (
-      <table>
-        <thead>
-          <button onClick={() => this.fetchEntry(chosenWord)}></button>
-          <tr>{chosenWord.toUpperCase()}</tr>
-        </thead>
-        {meanings.length ? (
-          meanings.map((mot, i) => {
-            return (
-              <tbody key={i}>
-                <tr>
-                  <th>{mot.partOfSpeech}</th>
-                </tr>
-                <div>
-                  {mot.definitions.map((def, j) => {
-                    return (
-                      <div key={j}>
-                        <h1>{j + 1}</h1>
-                        <div>{`${def.definition}`}</div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </tbody>
-            );
-          })
-        ) : (
-          <tbody> </tbody>
-        )}
-      </table>
+      <div>
+        <button onClick={() => this.fetchEntry(chosenWord)}></button>
+        <div>{selectWordMsg}</div>
+        <table>
+          <thead>
+            <tr onClick={() => this.fetchEntry(chosenWord)}>
+              {chosenWord.toUpperCase()}
+            </tr>
+          </thead>
+          {meanings.length ? (
+            meanings.map((mot, i) => {
+              return (
+                <tbody key={i}>
+                  <tr>
+                    <th>{mot.partOfSpeech}</th>
+                  </tr>
+                  <tr>
+                    {mot.definitions.map((def, j) => {
+                      return (
+                        <ul key={j}>
+                          <lh>{j + 1}</lh>
+                          <li>{`${def.definition}`}</li>
+                        </ul>
+                      );
+                    })}
+                  </tr>
+                </tbody>
+              );
+            })
+          ) : (
+            <tbody> </tbody>
+          )}
+        </table>
+      </div>
     );
   }
 }

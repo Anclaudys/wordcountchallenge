@@ -1,4 +1,5 @@
 # wordcountchallenge
+***Directions***
 
 1. Clone the repository and cd into it
 

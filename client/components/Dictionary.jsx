@@ -20,13 +20,16 @@ export default class Dictionary extends React.Component {
 
   async fetchEntry(word, lang = 'en_US') {
     if (!word) {
-      this.setState({ selectWordMsg: "Select a word to get it's definition" });
+      this.setState({
+        selectWordMsg:
+          "Select a word from the unique word list to get it's definition!",
+      });
       await setTimeout(
         () =>
           this.setState({
             selectWordMsg: '',
           }),
-        1000
+        1500
       );
     } else {
       const { data } = await axios.get(
@@ -44,12 +47,17 @@ export default class Dictionary extends React.Component {
     const { chosenWord, meanings, selectWordMsg } = this.state;
     return (
       <div>
-        <button onClick={() => this.fetchEntry(chosenWord)}></button>
-        <div>{selectWordMsg}</div>
+        <div className='buttoncont'>
+          <div id='selectmot'>{selectWordMsg}</div>
+        </div>
         <table>
           <thead>
-            <tr onClick={() => this.fetchEntry(chosenWord)}>
-              {chosenWord.toUpperCase()}
+            <tr
+              className='ui left button'
+              onClick={() => this.fetchEntry(chosenWord)}
+              className='chosenword'
+            >
+              {chosenWord}
             </tr>
           </thead>
           {meanings.length ? (

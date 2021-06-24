@@ -8249,6 +8249,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -8320,14 +8322,14 @@ var Dictionary = /*#__PURE__*/function (_React$Component) {
                 }
 
                 this.setState({
-                  selectWordMsg: "Select a word to get it's definition"
+                  selectWordMsg: "Select a word from the unique word list to get it's definition!"
                 });
                 _context.next = 5;
                 return setTimeout(function () {
                   return _this2.setState({
                     selectWordMsg: ''
                   });
-                }, 1000);
+                }, 1500);
 
               case 5:
                 _context.next = 13;
@@ -8370,15 +8372,16 @@ var Dictionary = /*#__PURE__*/function (_React$Component) {
           chosenWord = _this$state.chosenWord,
           meanings = _this$state.meanings,
           selectWordMsg = _this$state.selectWordMsg;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "buttoncont"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "selectmot"
+      }, selectWordMsg)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", _defineProperty({
+        className: "ui left button",
         onClick: function onClick() {
           return _this3.fetchEntry(chosenWord);
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, selectWordMsg), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", {
-        onClick: function onClick() {
-          return _this3.fetchEntry(chosenWord);
-        }
-      }, chosenWord.toUpperCase())), meanings.length ? meanings.map(function (mot, i) {
+      }, "className", "chosenword"), chosenWord)), meanings.length ? meanings.map(function (mot, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", {
           key: i
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null, mot.partOfSpeech)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, mot.definitions.map(function (def, j) {
@@ -8429,9 +8432,7 @@ function Stats(_ref) {
       sentences = parentState.sentences,
       chosenWord = parentState.chosenWord,
       numbers = parentState.numbers;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null, "Words and Sentences "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Characters ".concat(textBody.length, "     "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Words ".concat(words.length))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, " ", "Unique Words ".concat(unique.length, "    "), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Sentences ".concat(sentences.length, "    "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Paragraphs ".concat(paragraphs.length, "     "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Number Count ".concat(numbers.length, "    "))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Dictionary__WEBPACK_IMPORTED_MODULE_1__.default, {
-    chosenWord: chosenWord
-  }));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null, "Words and Sentences "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Characters ".concat(textBody.length, "     "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Words ".concat(words.length))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, " ", "Unique Words ".concat(unique.length, "    "), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Sentences ".concat(sentences.length, "    "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Paragraphs ".concat(paragraphs.length, "     "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Number Count ".concat(numbers.length, "    "))))));
 }
 
 /***/ }),
@@ -8633,7 +8634,9 @@ var Text = /*#__PURE__*/function (_React$Component) {
           chosenWord = _this$state.chosenWord,
           numbers = _this$state.numbers,
           twoLineP = _this$state.twoLineP;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        className: "ui form"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
         type: "text",
         value: textBody,
         name: "textBody",
@@ -8665,11 +8668,11 @@ var Text = /*#__PURE__*/function (_React$Component) {
         search: highlighted
       }, textBody)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Stats__WEBPACK_IMPORTED_MODULE_3__.default, {
         parentState: this.state
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_UniqueWords__WEBPACK_IMPORTED_MODULE_4__.default, {
+        parentState: this.state,
+        selectWord: this.selectWord
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Bigrams__WEBPACK_IMPORTED_MODULE_5__.default, {
         parentState: this.state
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_UniqueWords__WEBPACK_IMPORTED_MODULE_4__.default, {
-        words: unique,
-        selectWord: this.selectWord
       }));
     }
   }]);
@@ -8695,6 +8698,7 @@ var Text = /*#__PURE__*/function (_React$Component) {
 //   //   textBody: 'Blue Sky',
 //   // });
 // };
+// {/* <Dictionary chosenWord={chosenWord} />
 
 
 
@@ -8713,6 +8717,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ UniqueWords)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Dictionary__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dictionary */ "./client/components/Dictionary.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8737,6 +8742,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var UniqueWords = /*#__PURE__*/function (_React$Component) {
   _inherits(UniqueWords, _React$Component);
 
@@ -8756,15 +8762,23 @@ var UniqueWords = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          words = _this$props.words,
-          selectWord = _this$props.selectWord;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null, "".concat(words.length, " UNIQUE WORD").concat(words.length !== 1 ? 'S' : '')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, words.map(function (word, i) {
+          selectWord = _this$props.selectWord,
+          parentState = _this$props.parentState;
+      var words = parentState.words,
+          chosenWord = parentState.chosenWord;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+        className: "categorytitle"
+      }, "".concat(words.length, " UNIQUE WORD").concat(words.length !== 1 ? 'S' : ''))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Dictionary__WEBPACK_IMPORTED_MODULE_1__.default, {
+        chosenWord: chosenWord
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, words.map(function (word, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", {
           key: i,
           onClick: function onClick() {
             return selectWord(word);
           }
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, word));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", {
+          className: "uniqueword"
+        }, word));
       }))));
     }
   }]);

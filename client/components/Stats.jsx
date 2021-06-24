@@ -41,7 +41,7 @@ export default function Stats({ parentState }) {
           </tr>
         </tbody>
       </table>
-      <Dictionary chosenWord={chosenWord} />
+      {/* <Dictionary chosenWord={chosenWord} /> */}
     </div>
   );
 }

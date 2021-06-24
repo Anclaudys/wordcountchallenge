@@ -106,7 +106,7 @@ export default class Text extends React.Component {
       <div>
         <div>
           <div>
-            <form>
+            <form className='ui form'>
               <textarea
                 type='text'
                 value={textBody}
@@ -156,8 +156,8 @@ export default class Text extends React.Component {
           </Highlighter>
         </div>
         <Stats parentState={this.state} />
+        <UniqueWords parentState={this.state} selectWord={this.selectWord} />
         <Bigrams parentState={this.state} />
-        <UniqueWords words={unique} selectWord={this.selectWord} />
       </div>
     );
   }
@@ -184,3 +184,4 @@ export default class Text extends React.Component {
 //   //   textBody: 'Blue Sky',
 //   // });
 // };
+      // {/* <Dictionary chosenWord={chosenWord} />

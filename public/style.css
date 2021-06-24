@@ -11,3 +11,34 @@
   background-color: blueviolet;
   color: white;
 }
+
+#getdef {
+  display: flex;
+  align-items: center;
+}
+
+#selectmot {
+  align-self: flex-end;
+}
+
+.buttoncont {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.uniqueword {
+  color: black;
+}
+
+.uniqueword:hover {
+  background-color: crimson;
+  color: white;
+}
+
+.chosenword {
+  font-size: x-large;
+}
+
+.categorytitle {
+  text-decoration: underline;
+}

@@ -44,8 +44,6 @@ export default class Text extends React.Component {
     this.selectWord = this.selectWord.bind(this);
   }
   handleChange(evt) {
-    console.log('ETV', evt.target.value);
-    console.log();
     const parrafos =
       this.state.twoLineP === true
         ? getP2(evt.target.value)
@@ -61,7 +59,6 @@ export default class Text extends React.Component {
       bigrams: getBigrams(evt.target.value),
       paragraphs: parrafos,
     });
-    //console.log('words...', this.state.words);
   }
 
   highlightText(evt) {
@@ -72,7 +69,6 @@ export default class Text extends React.Component {
 
   async selectWord(word) {
     await this.setState({ chosenWord: word });
-    console.log('STATE CHOSEN WORD', this.state.chosenWord);
   }
 
   clearText() {
@@ -164,26 +160,3 @@ export default class Text extends React.Component {
     );
   }
 }
-
-// {/* <span>{`Characters ${textBody.length}     `}</span>
-// <span>{`Words ${words.length}`}</span>
-// <span> {`Unique Words ${uniqueWords.length}    `} </span>
-// <span>{`Sentences ${sentences.length}    `}</span>
-// <span>{`Paragraphs ${paragraphs.length}     `}</span>
-// <span>{`Number Count ${numbers.length}    `}</span>
-// <Dictionary /> */}
-
-// handlePaste = (evt) => {
-//   // const data = new DataTransfer(evt.clipboardData);
-//   // const a = navigator.clipboard
-//   //   .readText()
-//   //   .then((text) => (outputElem.innerText = text));
-//   // const text = data.getText();
-//   // const html = data.getHTML();
-//   // const files = data.getFiles();
-//   // console.log(a);
-//   // this.setState({
-//   //   textBody: 'Blue Sky',
-//   // });
-// };
-// {/* <Dictionary chosenWord={chosenWord} />

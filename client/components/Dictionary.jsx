@@ -36,7 +36,6 @@ export default class Dictionary extends React.Component {
         `https://api.dictionaryapi.dev/api/v2/entries/${lang}/${word}`
       );
       const meanings = data[0].meanings;
-      //console.log('means', meanings);
       this.setState({
         chosenWord: word,
         meanings: meanings,

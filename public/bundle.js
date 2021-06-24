@@ -8343,8 +8343,7 @@ var Dictionary = /*#__PURE__*/function (_React$Component) {
               case 9:
                 _yield$axios$get = _context.sent;
                 data = _yield$axios$get.data;
-                meanings = data[0].meanings; //console.log('means', meanings);
-
+                meanings = data[0].meanings;
                 this.setState({
                   chosenWord: word,
                   meanings: meanings
@@ -8538,8 +8537,6 @@ var Text = /*#__PURE__*/function (_React$Component) {
   _createClass(Text, [{
     key: "handleChange",
     value: function handleChange(evt) {
-      console.log('ETV', evt.target.value);
-      console.log();
       var parrafos = this.state.twoLineP === true ? (0,_utils__WEBPACK_IMPORTED_MODULE_6__.getP2)(evt.target.value) : (0,_utils__WEBPACK_IMPORTED_MODULE_6__.getP1)(evt.target.value);
       var palabras = (0,_utils__WEBPACK_IMPORTED_MODULE_6__.getWords)(evt.target.value) || [];
       this.setState({
@@ -8550,7 +8547,7 @@ var Text = /*#__PURE__*/function (_React$Component) {
         unique: (0,_utils__WEBPACK_IMPORTED_MODULE_6__.uniqueWords)(evt.target.value),
         bigrams: (0,_utils__WEBPACK_IMPORTED_MODULE_6__.getBigrams)(evt.target.value),
         paragraphs: parrafos
-      }); //console.log('words...', this.state.words);
+      });
     }
   }, {
     key: "highlightText",
@@ -8573,9 +8570,6 @@ var Text = /*#__PURE__*/function (_React$Component) {
                 });
 
               case 2:
-                console.log('STATE CHOSEN WORD', this.state.chosenWord);
-
-              case 3:
               case "end":
                 return _context.stop();
             }
@@ -8689,28 +8683,7 @@ var Text = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return Text;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component); // {/* <span>{`Characters ${textBody.length}     `}</span>
-// <span>{`Words ${words.length}`}</span>
-// <span> {`Unique Words ${uniqueWords.length}    `} </span>
-// <span>{`Sentences ${sentences.length}    `}</span>
-// <span>{`Paragraphs ${paragraphs.length}     `}</span>
-// <span>{`Number Count ${numbers.length}    `}</span>
-// <Dictionary /> */}
-// handlePaste = (evt) => {
-//   // const data = new DataTransfer(evt.clipboardData);
-//   // const a = navigator.clipboard
-//   //   .readText()
-//   //   .then((text) => (outputElem.innerText = text));
-//   // const text = data.getText();
-//   // const html = data.getHTML();
-//   // const files = data.getFiles();
-//   // console.log(a);
-//   // this.setState({
-//   //   textBody: 'Blue Sky',
-//   // });
-// };
-// {/* <Dictionary chosenWord={chosenWord} />
-
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 
 
@@ -8892,7 +8865,6 @@ function countP2(str) {
     }
 
     if (str[i] === '\n' && count >= 1) {
-      console.log('hey');
       inP = false;
     }
   }
@@ -8904,7 +8876,6 @@ function getP2(str) {
   var paragraphs = [];
   var inP = false;
   var currentP = '';
-  console.log(str);
 
   for (var i = 0; i < str.length; i++) {
     if (str[i] === '\n') {
@@ -8912,7 +8883,6 @@ function getP2(str) {
     }
 
     if (str[i] !== '\n') {
-      console.log(str[i]);
       currentP += str[i];
 
       if (str[i + 1] === '\n') {
@@ -8928,7 +8898,7 @@ function getP1(str) {
   str = str.match(/(\n|^).*?(?=\n|$)/g);
   var paragraphs = [];
   var inP = false;
-  var currentP = ''; //console.log(str);
+  var currentP = '';
 
   for (var i = 0; i < str.length; i++) {
     if (str[i] === '\n') {
@@ -8953,7 +8923,6 @@ function countP1(str) {
     }
 
     if (str[i] === '\n' && count >= 1) {
-      console.log('hey');
       inP = false;
     }
   }

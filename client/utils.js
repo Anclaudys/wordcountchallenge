@@ -64,7 +64,7 @@ export function countP2(str) {
       inP = true;
     }
     if (str[i] === '\n' && count >= 1) {
-      console.log('hey');
+
       inP = false;
     }
   }
@@ -76,13 +76,12 @@ export function getP2(str) {
   let paragraphs = [];
   let inP = false;
   let currentP = '';
-  console.log(str);
+
   for (let i = 0; i < str.length; i++) {
     if (str[i] === '\n') {
       continue;
     }
     if (str[i] !== '\n') {
-      console.log(str[i]);
       currentP += str[i];
       if (str[i + 1] === '\n') {
         paragraphs.push(currentP);
@@ -98,7 +97,6 @@ export function getP1(str) {
   let paragraphs = [];
   let inP = false;
   let currentP = '';
-  //console.log(str);
   for (let i = 0; i < str.length; i++) {
     if (str[i] === '\n') {
       continue;
@@ -119,7 +117,6 @@ export function countP1(str) {
       inP = true;
     }
     if (str[i] === '\n' && count >= 1) {
-      console.log('hey');
       inP = false;
     }
   }

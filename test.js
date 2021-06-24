@@ -1,8 +1,5 @@
 //Returns an array composed of all of the
 function getWords(s) {
-  //s = s.replace(/[']/g, '')
-  //console.log(s);
-  //return s.match(/(\w+)/g).length;
   return s.match(/([\w'-]+)/g);
 }
 
@@ -42,11 +39,6 @@ function getP1(str) {
   return paragraphs;
 }
 console.log(getP1(text));
-
-///console.log(getWords(text));
-// console.log(countNumbers(text));
-// console.log(text);
-// console.log(uniqueWords(text));
 
 const str = getWords(text);
 
@@ -112,8 +104,6 @@ function getP2(str) {
   }
   return paragraphs.length;
 }
-
-//console.log(getP2(text));
 
 //Returns the number of paragraphs when they start at a new line
 function countP1(str) {

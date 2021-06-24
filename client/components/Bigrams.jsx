@@ -7,13 +7,12 @@ export default class Bigrams extends React.Component {
   }
   render() {
     const { bigrams } = this.props.parentState;
-    console.log('bigrams', bigrams);
     return (
       <div>
         <table>
           <thead>
             <tr>
-              <th>{`${bigrams.length} BIGRAM${
+              <th className='categorytitle'>{`${bigrams.length} BIGRAM${
                 bigrams.length !== 1 ? 'S' : ''
               } FOUND`}</th>
             </tr>

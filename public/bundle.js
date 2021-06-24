@@ -8217,8 +8217,9 @@ var Bigrams = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var bigrams = this.props.parentState.bigrams;
-      console.log('bigrams', bigrams);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null, "".concat(bigrams.length, " BIGRAM").concat(bigrams.length !== 1 ? 'S' : '', " FOUND")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, bigrams.map(function (bi, i) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+        className: "categorytitle"
+      }, "".concat(bigrams.length, " BIGRAM").concat(bigrams.length !== 1 ? 'S' : '', " FOUND")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, bigrams.map(function (bi, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", {
           key: i
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, bi[0], " ", bi[1]));
@@ -8381,13 +8382,19 @@ var Dictionary = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.fetchEntry(chosenWord);
         }
-      }, "className", "chosenword"), chosenWord)), meanings.length ? meanings.map(function (mot, i) {
+      }, "className", "chosenword"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "titlewmsg"
+      }, "".concat(chosenWord), ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "clickfordef"
+      }, "Click word for definition")))), meanings.length ? meanings.map(function (mot, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", {
           key: i
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null, mot.partOfSpeech)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, mot.definitions.map(function (def, j) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
             key: j
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("lh", null, j + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, "".concat(def.definition)));
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("lh", null, j + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+            className: "definition"
+          }, "".concat(def.definition)));
         })));
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, " ")));
     }
@@ -8432,7 +8439,9 @@ function Stats(_ref) {
       sentences = parentState.sentences,
       chosenWord = parentState.chosenWord,
       numbers = parentState.numbers;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null, "Words and Sentences "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Characters ".concat(textBody.length, "     "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Words ".concat(words.length))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, " ", "Unique Words ".concat(unique.length, "    "), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Sentences ".concat(sentences.length, "    "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Paragraphs ".concat(paragraphs.length, "     "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Number Count ".concat(numbers.length, "    "))))));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+    className: "categorytitle"
+  }, "Text Information"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Characters ".concat(textBody.length, "     "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Words ".concat(words.length))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, " ", "Unique Words ".concat(unique.length, "    "), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Sentences ".concat(sentences.length, "    "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Paragraphs ".concat(paragraphs.length, "     "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Number Count ".concat(numbers.length, "    "))))));
 }
 
 /***/ }),
@@ -8666,14 +8675,16 @@ var Text = /*#__PURE__*/function (_React$Component) {
       }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_highlighter__WEBPACK_IMPORTED_MODULE_1___default()), {
         matchClass: "lighted",
         search: highlighted
-      }, textBody)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Stats__WEBPACK_IMPORTED_MODULE_3__.default, {
-        parentState: this.state
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_UniqueWords__WEBPACK_IMPORTED_MODULE_4__.default, {
+      }, textBody)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "categories"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_UniqueWords__WEBPACK_IMPORTED_MODULE_4__.default, {
         parentState: this.state,
         selectWord: this.selectWord
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Bigrams__WEBPACK_IMPORTED_MODULE_5__.default, {
         parentState: this.state
-      }));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Stats__WEBPACK_IMPORTED_MODULE_3__.default, {
+        parentState: this.state
+      })));
     }
   }]);
 
@@ -8767,8 +8778,10 @@ var UniqueWords = /*#__PURE__*/function (_React$Component) {
       var words = parentState.words,
           chosenWord = parentState.chosenWord;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
-        className: "categorytitle"
-      }, "".concat(words.length, " UNIQUE WORD").concat(words.length !== 1 ? 'S' : ''))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Dictionary__WEBPACK_IMPORTED_MODULE_1__.default, {
+        className: "categoryt"
+      }, "".concat(words.length, " UNIQUE WORD").concat(words.length !== 1 ? 'S' : ''))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", {
+        id: "clickunique"
+      }, "Select a unique word to get its definition"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Dictionary__WEBPACK_IMPORTED_MODULE_1__.default, {
         chosenWord: chosenWord
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, words.map(function (word, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", {

@@ -36,9 +36,34 @@
 }
 
 .chosenword {
-  font-size: x-large;
+  font-size: xx-large;
 }
 
 .categorytitle {
   text-decoration: underline;
+  font-size: large;
+}
+
+.categories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+#clickfordef {
+  font-size: x-small;
+}
+
+#clickunique {
+  font-size: x-small;
+}
+
+.titlewmsg {
+  display: flex;
+  flex-direction: row;
+}
+
+.definition {
+  background-color: white;
 }

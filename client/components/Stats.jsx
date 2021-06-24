@@ -17,7 +17,7 @@ export default function Stats({ parentState }) {
       <table>
         <thead>
           <tr>
-            <th>Words and Sentences </th>
+            <th className='categorytitle'>Text Information</th>
           </tr>
         </thead>
         <tbody>

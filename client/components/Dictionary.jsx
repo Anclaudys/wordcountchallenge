@@ -57,7 +57,10 @@ export default class Dictionary extends React.Component {
               onClick={() => this.fetchEntry(chosenWord)}
               className='chosenword'
             >
-              {chosenWord}
+              <div className='titlewmsg'>
+                {`${chosenWord}`}{' '}
+                <div id='clickfordef'>{`Click word for definition`}</div>
+              </div>
             </tr>
           </thead>
           {meanings.length ? (
@@ -72,7 +75,7 @@ export default class Dictionary extends React.Component {
                       return (
                         <ul key={j}>
                           <lh>{j + 1}</lh>
-                          <li>{`${def.definition}`}</li>
+                          <li className='definition'>{`${def.definition}`}</li>
                         </ul>
                       );
                     })}

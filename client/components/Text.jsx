@@ -155,9 +155,11 @@ export default class Text extends React.Component {
             {textBody}
           </Highlighter>
         </div>
-        <Stats parentState={this.state} />
-        <UniqueWords parentState={this.state} selectWord={this.selectWord} />
-        <Bigrams parentState={this.state} />
+        <div className='categories'>
+          <UniqueWords parentState={this.state} selectWord={this.selectWord} />
+          <Bigrams parentState={this.state} />
+          <Stats parentState={this.state} />
+        </div>
       </div>
     );
   }
@@ -184,4 +186,4 @@ export default class Text extends React.Component {
 //   //   textBody: 'Blue Sky',
 //   // });
 // };
-      // {/* <Dictionary chosenWord={chosenWord} />
+// {/* <Dictionary chosenWord={chosenWord} />

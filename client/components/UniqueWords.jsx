@@ -14,10 +14,11 @@ export default class UniqueWords extends React.Component {
         <table>
           <thead>
             <tr>
-              <th className='categorytitle'>{`${words.length} UNIQUE WORD${
+              <th className='categoryt'>{`${words.length} UNIQUE WORD${
                 words.length !== 1 ? 'S' : ''
               }`}</th>
             </tr>
+            <tr id="clickunique">Select a unique word to get its definition</tr>
             <Dictionary chosenWord={chosenWord} />
           </thead>
           <tbody>
